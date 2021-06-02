@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> <!--추가-->
+
+    <title>game1</title>
+    <style>
+        div, body, h1, h2{margin:0; padding:0;}
+        body{background-color: black;}
+        div {
+        
+        }
+        .center-corner {
+        background-size: 0% 0%;
+        background-position: 50% 50%;
+        position: relative;
+        display: inline-block;
+        padding: 15px 70px;
+        border: 5px solid #B17461;
+        color: #B17461;
+        font-size: 30px;
+        font-family: arial;
+        background-image: linear-gradient(#B17461, #B17461);
+        background-repeat: no-repeat;
+        transition: background-size .5s, color .5s;
+        }
+        div:hover {
+        background-size: 100% 100%;
+        color: #fff;
+        }
+        body{background-position: 50% 50%;}
+        /* .back2{
+            background-image: url("게임기1.png");
+            width:100%;
+            height:800px;
+            position: fixed;
+            background-repeat:no-repeat;
+            background-size:100% auto;
+            z-index: -10;
+        } */
+        .back2{
+        width:100%;
+        height:800px;
+        z-index:-1;
+        position:absolute; top:0px;
+        }  
+        .stick {
+            transition: transform 0.3s;
+            transform-origin : 50% 100%;
+            width:60px;
+            
+        }
+        
+        .type1{position:absolute; top:550px; left:calc(50% - 228px);}
+
+        .container{
+            text-align: center;
+            overflow:hidden;
+            border-radius: 36px;
+            background-color: #9BD3E5;
+            width: 544px; height: 416px;
+            /* cursor:url('총게임커서.png'), auto; */
+            margin:auto;
+            margin-top:180px;
+        }
+        .switch_btn{
+            width:90px; height:90px; border-radius: 50%;
+            position:relative; margin-top:350px;
+        }
+    </style>
+</head>
+<body>
+    <img class="back2" src="게임기1.png">
+        
+    
+    <div class="container"><button class="switch_btn">switch color</button></div>
+    <section >
+        
+        <h4>From center towards corners</h4>
+        <div class='center-corner'>NEXT</div>
+    </section>
+    <img class="stick type1" id="stick"  class="miniToolbarContant"  src="막대1.png">
+    
+    
+    
+    <script type="text/Javascript">
+        var color = ["#60FFFF", "#F8D424", "#EC63EE" ,"#8DCA55", "#2D9CBB", "#A693DB",];
+        var i=0;
+        
+        document.querySelector("button").addEventListener("click",
+            function funcA(){
+                i = i < color.length ? ++i : 0;
+                document.querySelector(".container").style.background = color[i];
+        });
+
+        var angle = [30,-30,0,40,-40];
+        var i=0;
+        
+        document.querySelector("#stick").addEventListener("click",
+            function funcA(){
+                i = i < angle.length ? ++i : 0;
+                $(this).css('-webkit-transform','rotate('+angle[i]+'deg)'); 
+        })
+            
+        
+            
+        
+    </script>
+   
+</body>
+</html>

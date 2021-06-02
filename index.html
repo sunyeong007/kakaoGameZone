@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kakaoGameZone</title>
+    <style>
+        body, h1, h2, p {margin:0; padding:0;}
+        .vid1{
+            width:100%;
+        }
+        .back1{
+            width:100%;
+            background-image: url(back1.jpg);
+            position: fixed;
+            background-repeat:no-repeat;
+            background-size:100% auto;
+            z-index: -10;
+        }
+        #myVideo {
+            width:100%;
+            
+            position: relative;
+            right: 0;
+            top: -100px;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+        }
+        .container{
+            margin-top : 600px;
+            display:grid;
+        }
+        .btn1{
+            width:200px;
+            height: 50px;
+            background-color: rgba(0,0,0,0);
+            border: solid yellow 4px;
+            border-radius : 50px;
+            font-size:20px;
+            background-color: rgba(0,0,0,0);
+            color : yellow;
+            margin:auto;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            float: left;
+        }
+
+        li a {
+        display: block;
+        color: #EDFF00;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        }
+
+        .nav_bar{
+            display:flex;
+            justify-content: center;
+        }
+                
+    </style>
+</head>
+<body>
+    <section class="back1">
+        <video autoplay muted loop id="myVideo">
+            <source src="실물배경.mp4" type="video/mp4">
+        </video>
+    </section>
+        <!-- <div class="container">
+            <button class="btn1">click me!</button>
+        </div> -->
+    <div class=nav_bar>
+        <ul>
+            <li><a href="game1.html">game1</a></li>
+            <li><a href="game2.html">game2</a></li>
+            <li><a href="game3.html">game3</a></li>
+        </ul>
+    </div>
+    
+</body>
+</html>
