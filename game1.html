@@ -9,10 +9,9 @@
     <title>game1</title>
     <style>
         div, body, h1, h2{margin:0; padding:0;}
+        body{margin:0; overflow:hidden; }
         body{background-color: black;}
-        div {
         
-        }
         .center-corner {
         background-size: 0% 0%;
         background-position: 50% 50%;
@@ -50,37 +49,42 @@
         .stick {
             transition: transform 0.3s;
             transform-origin : 50% 100%;
-            width:60px;
+            width:45px;
             
         }
         
-        .type1{position:absolute; top:550px; left:calc(50% - 228px);}
+        .type1{position:absolute; top:390px; left:calc(50% - 162px);}
 
         .container{
             text-align: center;
             overflow:hidden;
-            border-radius: 36px;
+            border-radius: 26px;
             background-color: #9BD3E5;
-            width: 544px; height: 416px;
+            width: 385px; height: 295px;
             /* cursor:url('총게임커서.png'), auto; */
             margin:auto;
-            margin-top:180px;
+            margin-top:125px;
+            overflow: hidden;
+            opacity: 50%;
         }
         .switch_btn{
             width:90px; height:90px; border-radius: 50%;
-            position:relative; margin-top:350px;
+            position:relative; margin-top:350px; z-index: 1000; position:absolute; top:-60px; left:50%;
         }
     </style>
 </head>
-<body>
+<body  scroll="no">
     <img class="back2" src="게임기1.png">
         
     
     <div class="container"><button class="switch_btn">switch color</button></div>
-    <section >
+    
+
+
+    <section>
         
         <h4>From center towards corners</h4>
-        <div class='center-corner'>NEXT</div>
+        <!-- <div class='center-corner'>NEXT</div> -->
     </section>
     <img class="stick type1" id="stick"  class="miniToolbarContant"  src="막대1.png">
     
