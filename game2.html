@@ -8,7 +8,7 @@
     <title>game2</title>
     <style>
         div, body, h1, h2{margin:0; padding:0;}
-        body{background-color: black;}
+        body{background-color: black; margin:0; overflow:hidden;}
         section{
             margin:auto;
             text-align: center;
@@ -16,11 +16,11 @@
         .stick {
             transition: transform 0.3s;
             transform-origin : 50% 100%;
-            width:60px;
+            width:45px;
             
         }
-        .type1{position:absolute; top:550px; left:calc(50% - 228px);}
-        .type2{position:absolute; top:550px; left:calc(50% + 70px);}
+        .type1{position:absolute; top:390px; left:calc(50% - 162px)}
+        .type2{position:absolute; top:390px; left:calc(50% + 48px)}
 
         /* .rotate {
             -webkit-transform: rotate(30deg);
@@ -37,7 +37,7 @@
         }  
     </style>
 </head>
-<body>
+<body  scroll="no">
     <img class="back3" src="게임기2.png">
     <section>
         <img class="stick type1" id="stk1"  class="miniToolbarContant"  src="막대1.png">
