@@ -7,20 +7,37 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> <!--추가-->
     <title>game2</title>
     <style>
-        div, body, h1, h2{margin:0; padding:0;}
+        @font-face {
+            font-family: 'TmoneyRoundWindExtraBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        div, body, h1, h2{margin:0; padding:0; font-family: 'TmoneyRoundWindExtraBold'}
         body{background-color: black; margin:0; overflow:hidden;}
         section{
             margin:auto;
             text-align: center;
         }
+
+        .back1{
+            width:100%; height:1200px;
+            background-image: url(back1.jpg);
+            position: fixed;
+            /* background-repeat:no-repeat; */
+            background-size:100% ;
+            z-index: -10;
+        }
+
         .stick {
             transition: transform 0.3s;
             transform-origin : 50% 100%;
             width:45px;
             
         }
-        .type1{position:absolute; top:390px; left:calc(50% - 162px)}
-        .type2{position:absolute; top:390px; left:calc(50% + 48px)}
+        .type1{position:absolute; top:595px; left:calc(50% - 240px)}
+        .type2{position:absolute; top:595px; left:calc(50% + 90px)}
 
         /* .rotate {
             -webkit-transform: rotate(30deg);
@@ -30,34 +47,266 @@
             transform: rotate(30deg);
         } */
         .back3{
-        width:100%;
-        height:800px;
-        z-index:-1;
-        position:absolute; top:0px;
+            width:800px;
+            position:absolute; top:0px;
+            z-index:-1;
+            left:calc(50% - 400px);
         }  
+        .light_shadow{
+            margin: auto;
+            width:700px; height:1200px;
+            box-shadow:0 0 5px rgb(255, 241, 111), 0 0 25px rgb(255, 241, 111), 0 0 50px rgb(255, 241, 111), 
+            0 0 100px rgb(255, 241, 111), 0 0 200px rgb(255, 241, 111);
+            z-index:-2;
+        }
+        .vs{
+            font-size: 30px; font-weight: 800; color:rgb(255, 241, 111); z-index:1300; position:absolute; top:350px; left:calc(50% - 15px);
+        }
+        .container{
+            border-radius: 35px;
+            background-color: rgb(255, 230, 0);
+            box-shadow: 0 0 25px rgb(255, 241, 111), 0 0 100px rgb(255, 241, 111), 0 0 200px rgb(255, 241, 111);
+            opacity:30%;
+            width: 599px; height: 427px;
+            position:absolute;
+            top:183px;
+            left:calc(50% - 299px);
+        }
+        .box1{
+            border-radius: 35px;
+            background-color: white;
+            width:220px; height:250px;
+            display:flex;
+            position:absolute;
+            top:270px; left:calc(50% - 270px);
+            
+
+        }
+        .box2{
+            border-radius: 35px;
+            background-color: rgb(255, 230, 0);
+            width:220px; height:65px;
+            display:flex;
+        }
+        .box1 p{
+            width:220px; 
+            text-align: center;
+            font-size: 20px; font-weight: 800;
+            padding:20px;
+        }
+        p.result{ display: inline-block; font-size:20px; line-height: 28px; 
+            border-right: 1px solid #000; padding-right: 2px; box-sizing: border-box; 
+        }
+
+        /*animation: cursor 0.4s infinite;
+        @keyframes cursor{ 
+            0%{border-right: 1px solid #fff} 
+            50%{border-right: 1px solid #000} 
+            100%{border-right: 1px solid #fff} 
+        }
+        */
+        
+        
+        .box2 p{
+            width:240px; 
+            text-align: center;
+            font-size: 20px; font-weight: 800;
+
+        }
+        .no1{
+            position:absolute;
+            top:270px; left:calc(50% + 50px);
+            animation: plus_move1 6s forwards infinite;
+        }
+        .no2{
+            position:absolute;
+            top:360px; left:calc(50% + 50px);
+            animation: plus_move2 6s forwards infinite;
+        }
+        .no3{
+            position:absolute;
+            top:450px; left:calc(50% + 50px);
+            animation: plus_move3 6s forwards infinite;
+        }
+
+        @keyframes plus_move1{
+            10%{top:270px; left:calc(50% + 50px); width:220px; }
+            20%{top:260px; left:calc(50% + 40px); width:240px; height: auto;}
+            30%{top:270px; left:calc(50% + 50px); width:220px;}
+                /* transition-timing-function: cubic-bezier(.55,.09,.79,.52);} */
+        }
+
+        @keyframes plus_move2{
+            0%{top:360px; left:calc(50% + 50px); width:220px; }
+            10%{top:350px; left:calc(50% + 40px); width:240px; height: auto;}
+            20%{top:360px; left:calc(50% + 50px); width:220px;}
+                /* transition-timing-function: cubic-bezier(.55,.09,.79,.52);} */
+        }
+
+        @keyframes plus_move3{
+            20%{top:450px; left:calc(50% + 50px); width:220px; }
+            30%{top:440px; left:calc(50% + 40px); width:240px; height: auto;}
+            40%{top:450px; left:calc(50% + 50px); width:220px;}
+                /* transition-timing-function: cubic-bezier(.55,.09,.79,.52);} */
+        }
+        
+
+        
     </style>
 </head>
 <body  scroll="no">
-    <img class="back3" src="게임기2.png">
-    <section>
-        <img class="stick type1" id="stk1"  class="miniToolbarContant"  src="막대1.png">
-        <img class="stick type2" id="stk2"  class="miniToolbarContant"  src="막대2.png">
+    <section class="back1">
+        <img class="back3" src="게임기2.png">
+        <div class="light_shadow"></div>
+        <p class="vs">VS</p>
+        <div class="box1">
+            <p class="result"></p>
+        </div>
+        <div class="box2 no1"><p>맛</p></div>
+        <div class="box2 no2"><p>가성비</p></div>
+        <div class="box2 no3"><p>분위기</p></div>
+        <div class="container"></div>
+        <section>
+            <img class="stick type1" id="stk1"  class="miniToolbarContant"  src="막대1.png">
+            <img class="stick type2" id="stk2"  class="miniToolbarContant"  src="막대2.png">
+        </section>
     </section>
+    
     <script type="text/javascript">
+        
+        var srcs = ['a.jpg' , 'b.jpg' , 'c.jpg', 'd.jpg', 'e.jpg'];
+        var bacs = ["url(b.jpg)","url(b.jpg)","url(b.jpg)","url(b.jpg)"];
+        
+        // document.querySelector("#stk1").addEventListener("click",
+        //     function funcA(){
+        //         i = i < angle.length ? ++i : 0;
+        //         $(this).css('-webkit-transform','rotate('+angle[i]+'deg)'); 
+        // })
+
         var angle = [30,-30,0,40,-40];
         var i=0;
-        
-        document.querySelector("#stk1").addEventListener("click",
-            function funcA(){
-                i = i < angle.length ? ++i : 0;
-                $(this).css('-webkit-transform','rotate('+angle[i]+'deg)'); 
-        })
-
-        document.querySelector("#stk2").addEventListener("click",
-        function funcA(){
+        stk1.onclick = function(){
             i = i < angle.length ? ++i : 0;
-            $(this).css('-webkit-transform','rotate('+angle[i]+'deg)'); 
-        })
+
+            if(i < angle.length){
+                i++;
+            }else{
+                i=0;
+            }
+
+            this.style.transform = "rotate(" + angle[i] + "deg)";  
+
+        }
+
+        stk2.onclick = function(){
+            i = i < angle.length ? ++i : 0;
+
+            if(i < angle.length){
+                i++;
+            }else{
+                i=0;
+            }
+
+            this.style.transform = "rotate(" + angle[i] + "deg)";  
+
+        }
+
+        // document.querySelector("#stk2").addEventListener("click",
+        // function funcA(){
+        //     i = i < angle.length ? ++i : 0;
+        //     $(this).css('-webkit-transform','rotate('+angle[i]+'deg)'); 
+        // })
+
+
+        String.prototype.toKorChars = function() { 
+        var cCho = [ 'ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ' ], 
+        cJung = [ 'ㅏ', 'ㅐ', 'ㅑ', 'ㅒ', 'ㅓ', 'ㅔ', 'ㅕ', 'ㅖ', 'ㅗ', 'ㅘ', 'ㅙ', 'ㅚ', 'ㅛ', 'ㅜ', 'ㅝ', 'ㅞ', 'ㅟ', 'ㅠ', 'ㅡ', 'ㅢ', 'ㅣ' ], 
+        cJong = [ '', 'ㄱ', 'ㄲ', 'ㄳ', 'ㄴ', 'ㄵ', 'ㄶ', 'ㄷ', 'ㄹ', 'ㄺ', 'ㄻ', 'ㄼ', 'ㄽ', 'ㄾ', 'ㄿ', 'ㅀ', 'ㅁ', 'ㅂ', 'ㅄ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ' ], cho, jung, jong; 
+        var str = this, 
+        cnt = str.length, 
+        chars = [], 
+        cCode; 
+        for (var i = 0; i < cnt; i++) { 
+            cCode = str.charCodeAt(i); 
+            if (cCode == 32) { 
+              chars.push(" ");
+              continue;
+            } // 한글이 아닌 경우 
+            if (cCode < 0xAC00 || cCode > 0xD7A3) { 
+                chars.push(str.charAt(i)); continue; 
+                } 
+            cCode = str.charCodeAt(i) - 0xAC00; 
+
+            jong = cCode % 28; 
+            // 종성 
+            jung = ((cCode - jong) / 28 ) % 21 
+
+            // 중성 
+            cho = (((cCode - jong) / 28 ) - jung ) / 21 
+            // 초성 
+
+            //기본 코드 테스트가 ㅌㅔㅅ-ㅌ- 형식으로 저장됨 
+            // chars.push(cCho[cho], cJung[jung]); 
+            // if (cJong[jong] !== '') { 
+            //     chars.push(cJong[jong]); 
+            //     } 
+
+
+            //  테스트라는 문장이 있으면 ㅌ테ㅅ스ㅌ트 형식으로 저장되도록함 (타이핑을 위해서)
+            chars.push(cCho[cho]);
+            chars.push(String.fromCharCode( 44032 + (cho * 588) + (jung  * 28)));
+            if (cJong[jong] !== '') { 
+                chars.push(String.fromCharCode( 44032 + (cho * 588) + (jung  * 28) + jong ));
+            }
+           
+        } 
+        
+        return chars; 
+    }
+
+
+//타이핑할 문장
+    var result  = "이 집은 분위기보단 <br> 가성비가 좋다.<br> 배고픈데 빨리 <br>해치우고 싶을 때 <br>찾는 곳! 맛은 쏘쏘~ 먹을만 합니다!";
+    var typeing1=[];
+    result = result.split(''); // 한글자씩자름
+
+    //각글자 초성,중성,종성으로 나눔
+    for(var i =0; i<result.length; i++){
+        typeing1[i]=result[i].toKorChars();
+    }
+
+    //출력할 엘리먼트요소 가져옴 
+    var resultDiv = document.getElementsByClassName("result")[0];
+
+    //
+    var text = "";
+    var i=0; 
+    var j=0; 
+    var text = '';
+
+    //총글자수
+    var imax = typeing1.length;
+
+    //setInterval을 이용해 반복적으로 출력 
+    var inter = setInterval(typi,150);
+
+
+    function typi(){
+        //글자수만큼 반복후 종료 
+        if(i<=imax-1){
+            //각 글자가 초성 중성 종성 순서대로 추가되도록 
+            var jmax = typeing1[i].length;
+            resultDiv.innerHTML = text + typeing1[i][j];
+            j++;
+            if(j==jmax){
+                text+=  typeing1[i][j-1];//초성중성종성 순서대로 출력된 글자는 저장 ( 다음 글자와 이어붙이기 위해서 )
+                i++;
+                j=0;
+            }
+        } else{
+            clearInterval(inter);
+        }
+    }
     </script>
 </body>
 </html>
