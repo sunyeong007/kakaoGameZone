@@ -12,6 +12,22 @@
         body{margin:0; overflow:hidden; }
         body{background-color: black;}
         
+        .back1{
+            width:100%; height:1200px;
+            background-image: url(back1.jpg);
+            position: fixed;
+            /* background-repeat:no-repeat; */
+            background-size:100% ;
+            z-index: -10;
+        }
+        .back2{
+            width:800px;
+            position:absolute; top:0px;
+            z-index:-1;
+            left:calc(50% - 400px);
+        }
+        
+
         .center-corner {
         background-size: 0% 0%;
         background-position: 50% 50%;
@@ -40,12 +56,7 @@
             background-size:100% auto;
             z-index: -10;
         } */
-        .back2{
-        width:100%;
-        height:800px;
-        z-index:-1;
-        position:absolute; top:0px;
-        }  
+        
         .stick {
             transition: transform 0.3s;
             transform-origin : 50% 100%;
@@ -53,40 +64,59 @@
             
         }
         
-        .type1{position:absolute; top:390px; left:calc(50% - 162px);}
+        .type1{position:absolute; top:590px; left:calc(50% - 240px);}
 
         .container{
             text-align: center;
             overflow:hidden;
-            border-radius: 26px;
+            border-radius: 35px;
             background-color: #9BD3E5;
-            width: 385px; height: 295px;
+            box-shadow: 0 0 25px #9BD3E5, 0 0 100px #9BD3E5, 0 0 200px #9BD3E5;
+            width: 599px; height: 427px;
             /* cursor:url('총게임커서.png'), auto; */
-            margin:auto;
-            margin-top:125px;
+            position:absolute;
+            top:183px;
+            left:calc(50% - 299px);
             overflow: hidden;
             opacity: 50%;
         }
-        .switch_btn{
-            width:90px; height:90px; border-radius: 50%;
-            position:relative; margin-top:350px; z-index: 1000; position:absolute; top:-60px; left:50%;
+        .light_shadow{
+            margin: auto;
+            width:700px; height:1200px;
+            box-shadow:0 0 5px rgb(99, 255, 255), 0 0 25px rgb(99, 255, 255), 0 0 50px rgb(99, 255, 255), 
+            0 0 100px rgb(99, 255, 255), 0 0 200px rgb(99, 255, 255);
+            z-index:-2;
         }
+
+        .switch{
+            width:30px; height:15px; border-radius: 50%;   opacity:30%;
+            position:absolute;  z-index: 2500; position:absolute; 
+        }
+
+        .btn1{top:648px; left:calc(50% - 138px); background-color: aqua;}
+        .btn2{top:648px; left:calc(50% - 90px); background-color: magenta;}
+        .btn3{top:678px; left:calc(50% - 115px); background-color: yellow;}
+
+
+        
     </style>
 </head>
 <body  scroll="no">
-    <img class="back2" src="게임기1.png">
-        
-    
-    <div class="container"><button class="switch_btn">switch color</button></div>
-    
-
-
-    <section>
-        
-        <h4>From center towards corners</h4>
-        <!-- <div class='center-corner'>NEXT</div> -->
+    <section class="back1">
+        <img class="back2" src="게임기1.png">
+        <div class="light_shadow"></div>
+        <div class="light_shadow"></div>
+        <div class="container"></div>
+        <section>
+            <h4>From center towards corners</h4>
+            <!-- <div class='center-corner'>NEXT</div> -->
+        </section>
+        <img class="stick type1" id="stick"  class="miniToolbarContant"  src="막대1.png">
+        <button class="switch btn1"></button>
+        <button class="switch btn2"></button>
+        <button class="switch btn3"></button>
     </section>
-    <img class="stick type1" id="stick"  class="miniToolbarContant"  src="막대1.png">
+    
     
     
     
@@ -94,7 +124,19 @@
         var color = ["#60FFFF", "#F8D424", "#EC63EE" ,"#8DCA55", "#2D9CBB", "#A693DB",];
         var i=0;
         
-        document.querySelector("button").addEventListener("click",
+        document.querySelector(".btn1").addEventListener("click",
+            function funcA(){
+                i = i < color.length ? ++i : 0;
+                document.querySelector(".container").style.background = color[i];
+        });
+
+        document.querySelector(".btn2").addEventListener("click",
+            function funcA(){
+                i = i < color.length ? ++i : 0;
+                document.querySelector(".container").style.background = color[i];
+        });
+
+        document.querySelector(".btn3").addEventListener("click",
             function funcA(){
                 i = i < color.length ? ++i : 0;
                 document.querySelector(".container").style.background = color[i];
@@ -103,11 +145,29 @@
         var angle = [30,-30,0,40,-40];
         var i=0;
         
-        document.querySelector("#stick").addEventListener("click",
-            function funcA(){
-                i = i < angle.length ? ++i : 0;
-                $(this).css('-webkit-transform','rotate('+angle[i]+'deg)'); 
-        })
+        // document.querySelector("#stick").addEventListener("click",
+        //     function funcA(){
+        //         i = i < angle.length ? ++i : 0;
+        //         $(this).css('-webkit-transform','rotate('+angle[i]+'deg)'); 
+        // })
+
+        
+        stick.onclick = function(){
+            i = i < angle.length ? ++i : 0;
+
+            if(i < angle.length){
+                i++;
+            }else{
+                i=0;
+            }
+
+            this.style.transform = "rotate(" + angle[i] + "deg)";  
+            // ttt.src = "b.jpg";
+
+            // ttt.src = srcs[i];
+            // ttt.style.background = "url(b.jpg)";
+
+        }
             
         
             
