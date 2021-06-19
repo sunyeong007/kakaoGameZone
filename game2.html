@@ -150,8 +150,26 @@
                 /* transition-timing-function: cubic-bezier(.55,.09,.79,.52);} */
         }
         
-
+        .help_btn{
+            position : absolute; top: 50px; right:50px;
+            font-size : 36px; line-height:50px;
+            width : 50px; height:50px;
+            display:block; text-decoration: none;
+            text-align:center; 
+            background :rgb(255, 217, 0);
+            color : rgb(253, 247, 209); border-radius:1em;
+            box-shadow :  0 0 0.6em hsl(0 0% 100% / 0.2), 0 0 0.6em rgb(255, 217, 0);
+            text-shadow :  0 0 0.1em hsl(0 0% 100% / 0.2), 0 0 0.15em currentColor;
+        }
         
+
+        .dropdown-content {
+        position: absolute; top: 100px; right:20px;
+        z-index: 3100;
+        font-family: 'TmoneyRoundWindExtraBold'; font-size:28px; line-height:1.6em;  color:rgb(253, 247, 209);;
+        text-shadow :  0 0 0.05em hsl(0 0% 100% / 0.2), 0 0 0.12em currentColor;
+        width: 300px; text-align: right; 
+        }
     </style>
 </head>
 <body  scroll="no">
@@ -170,6 +188,10 @@
             <img class="stick type1" id="stk1"  class="miniToolbarContant"  src="막대1.png">
             <img class="stick type2" id="stk2"  class="miniToolbarContant"  src="막대2.png">
         </section>
+
+        <a href="#pop1" class="help_btn">?</a>
+        <p class="dropdown-content">Game 2는<br> 카카오리뷰의 간단리뷰 <br>작성 기능을 나타냅니다!<br>
+            스틱을 조작해 효율성<br> 차이를 느껴보세요!</p>
     </section>
     
     <script type="text/javascript">
@@ -266,7 +288,7 @@
 
 
 //타이핑할 문장
-    var result  = "이 집은 분위기보단 가성비가 좋다. 배고픈데 빨리 해치우고 싶을 때 찾는 곳! 맛은 쏘쏘~ 먹을만 합니다!";
+    var result  = "이 집은 분위기보단 <br> 가성비가 좋다.<br> 배고픈데 빨리 <br>해치우고 싶을 때 <br>찾는 곳! 맛은 쏘쏘~ 먹을만 합니다!";
     var typeing1=[];
     result = result.split(''); // 한글자씩자름
 
